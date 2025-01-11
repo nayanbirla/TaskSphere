@@ -20,8 +20,10 @@ public class Project {
     String image;
 
     @ManyToOne
+    @JoinColumn(name = "organizationId")
     Organization organizationId;
 
     @ManyToOne
+    @JoinColumn(name = "createdBy")
     User createdBy;
 }

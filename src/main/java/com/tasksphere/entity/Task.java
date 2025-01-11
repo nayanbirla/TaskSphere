@@ -12,9 +12,11 @@ public class Task {
     Integer id;
 
     @ManyToOne
+    @JoinColumn(name = "projectId")
     Project projectId;
 
     @ManyToOne
+    @JoinColumn(name = "createdBy")
     User createdBy;
 
     @Column(length = 100)
@@ -24,5 +26,6 @@ public class Task {
     String description;
 
     @ManyToOne
+    @JoinColumn(name = "assignedTo")
     User assignedTo;
 }
