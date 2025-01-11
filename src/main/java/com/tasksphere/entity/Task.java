@@ -5,23 +5,24 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Project {
+public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column(length = 100)
-    String title;
-
-    @Column(length = 500)
-    String description;
-
-    @Column(length = 300)
-    String image;
-
     @ManyToOne
-    Organization organizationId;
+    Project projectId;
 
     @ManyToOne
     User createdBy;
+
+    @Column(length = 100)
+    String title;
+
+    @Column(length = 1000)
+    String description;
+
+    @ManyToOne
+    User assignedTo;
 }
