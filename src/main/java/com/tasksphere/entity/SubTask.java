@@ -3,22 +3,13 @@ package com.tasksphere.entity;
 import com.tasksphere.entity.Types.Status;
 import jakarta.persistence.*;
 
-import java.util.List;
-
-@Entity
-public class Task {
-
+public class SubTask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "projectId")
-    Project projectId;
-
-    @ManyToOne
-    @JoinColumn(name = "createdBy")
-    User createdBy;
+    Task taskId;
 
     @Column(length = 100)
     String title;
@@ -27,7 +18,9 @@ public class Task {
     String description;
 
     @ManyToOne
-    @JoinColumn(name = "assignedTo")
+    User createdBy;
+
+    @ManyToOne
     User assignedTo;
 
     Status status;
